@@ -457,7 +457,7 @@ Otherwise replace all entity references within current buffer."
   (unless tdiary-diary-url
     (let* ((selected (car tdiary-diary-list))
 	   (default (car selected)))
-      (when select-url
+      (when (and select-url (> (length tdiary-diary-list) 1))
 	(setq selected (assoc (completing-read "Select SITE: " tdiary-diary-list
 					       nil t default nil default)
 			      tdiary-diary-list)))
